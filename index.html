@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOZIR - بازی دوز آنلاین</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="game-title">
+                <i class="fas fa-gamepad"></i>
+                DOZIR
+                <span class="version">v2.0</span>
+            </h1>
+            <div class="status-card" id="status">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                در حال اتصال...
+            </div>
+        </header>
+
+        <main>
+            <div class="game-container">
+                <!-- بخش انتخاب نماد -->
+                <div class="symbol-selection" id="symbolSelection">
+                    <h2>انتخاب نماد خود</h2>
+                    <div class="symbols">
+                        <button class="symbol-btn blue" onclick="selectSymbol('X')">
+                            <i class="fas fa-circle"></i>
+                            <span>آبی</span>
+                        </button>
+                        <button class="symbol-btn red" onclick="selectSymbol('O')">
+                            <i class="fas fa-times"></i>
+                            <span>قرمز</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- بخش بازی -->
+                <div class="game-board hidden" id="gameBoard">
+                    <div class="players-info">
+                        <div class="player player-x" id="playerX">
+                            <i class="fas fa-circle blue"></i>
+                            <span>بازیکن آبی</span>
+                            <div class="timer" id="timerX">60s</div>
+                        </div>
+                        <div class="vs">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="player player-o" id="playerO">
+                            <i class="fas fa-times red"></i>
+                            <span>بازیکن قرمز</span>
+                            <div class="timer" id="timerO">60s</div>
+                        </div>
+                    </div>
+
+                    <div class="board" id="board">
+                        <!-- سلول‌ها با JS ساخته می‌شن -->
+                    </div>
+
+                    <div class="game-info" id="gameInfo">
+                        <div class="moves-count" id="movesCount">
+                            تعداد حرکت: 0
+                        </div>
+                        <button class="reset-btn" onclick="resetGame()" id="resetBtn">
+                            <i class="fas fa-undo-alt"></i>
+                            بازی جدید
+                        </button>
+                    </div>
+                </div>
+
+                <!-- بخش تماشاگر -->
+                <div class="spectator-mode hidden" id="spectatorMode">
+                    <i class="fas fa-eye"></i>
+                    <h2>حالت تماشاگر</h2>
+                    <p>در حال تماشای بازی دو نفر دیگر هستید...</p>
+                    <div class="spectator-board" id="spectatorBoard">
+                        <!-- برد تماشاگر اینجا میاد -->
+                    </div>
+                </div>
+
+                <!-- بخش انتظار -->
+                <div class="waiting-room hidden" id="waitingRoom">
+                    <i class="fas fa-hourglass-half fa-spin"></i>
+                    <h2>منتظر بازیکن دوم...</h2>
+                    <p>لطفاً صبر کنید، بازی به زودی شروع می‌شود</p>
+                    <div class="loading-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش نتایج بازی -->
+            <div class="game-results hidden" id="gameResults">
+                <h2><i class="fas fa-trophy"></i> نتیجه بازی</h2>
+                <div class="winner-display" id="winnerDisplay"></div>
+                <div class="moves-history" id="movesHistory"></div>
+                <button class="close-results" onclick="closeResults()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
