@@ -1,7 +1,7 @@
 /* فونت ایران‌سنس (Vazirmatn) - نسخه آپلود شده */
 @font-face {
   font-family: 'Vazirmatn';
-  src: url('fonts/Vazirmatn-Regular.woff2') format('woff2');
+  src: url('Vazirmatn-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Vazirmatn';
-  src: url('fonts/Vazirmatn-Medium.woff2') format('woff2');
+  src: url('Vazirmatn-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'Vazirmatn';
-  src: url('fonts/Vazirmatn-Bold.woff2') format('woff2');
+  src: url('Vazirmatn-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -601,4 +601,5 @@ header {
 
 .winner-line {
     animation: winGlow 1s infinite;
+
 }
